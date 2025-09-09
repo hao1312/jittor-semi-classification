@@ -33,3 +33,32 @@ Oversampling strategy based on class distribution to improve learning for minori
 
 ```bash
 python train.py --transform_cfg /path/to/transform.yml --root_path /path/to/dataset --res_path /path/to/results --exp experiment_name --fold 0 --total_folds 4
+
+## Dependencies
+
+- **Python 3.7+**
+- **Jittor** deep learning framework
+- Standard scientific computing libraries (`numpy`, `yaml`, etc.)
+
+## Dataset Preparation
+
+1. Organize labeled data in the structure: `root_path/images/train/`
+2. Place unlabeled data in the directory specified by `--unlabeled_dir`
+3. Create a label file at `root_path/labels/trainval.txt` with format: `image_path label`
+
+## Outputs
+
+Training generates:
+- Best models for both Swin and ViT (standard and EMA versions)
+- Training logs
+- Validation results and confusion matrices
+- Periodic checkpoint models
+
+## Notes
+
+1. Prepare both labeled and unlabeled medical image datasets
+2. Adjust paths in configuration files according to your environment
+3. The default implementation is for 6-class classification; adjust for different tasks
+4. Models are saved at the end of training and for best performance checkpoints
+
+This project is particularly suited for medical image analysis scenarios where labeled data is limited but unlabeled data is relatively abundant. The semi-supervised learning approach with dual-model co-training effectively enhances model performance in such settings.
