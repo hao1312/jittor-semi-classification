@@ -33,7 +33,7 @@ Oversampling strategy based on class distribution to improve learning for minori
 
 ```bash
 python train.py --transform_cfg /path/to/transform.yml --root_path /path/to/dataset --res_path /path/to/results --exp experiment_name --fold 0 --total_folds 4
-
+```
 ## Dependencies
 
 - **Python 3.7+**
